@@ -7,18 +7,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddComponent } from './component/add/add.component';
 import { ViewComponent } from './component/view/view.component';
 import { EditComponent } from './component/edit/edit.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
     AppComponent,
     AddComponent,
     ViewComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

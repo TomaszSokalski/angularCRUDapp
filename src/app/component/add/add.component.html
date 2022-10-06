@@ -1,1 +1,69 @@
-<p>add works!</p>
+<header style="background-color: rgb(36, 36, 194); padding: 20px;">
+    <h1 style="text-align: center; color: white; margin: 0 auto;">Angular Employee CRUD application</h1>
+</header>
+<hr>
+<div class="container-fluid">
+    <form action="">
+        <div class="row">
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Employee id</mat-label>
+                    <input matInput type="number" name="eid" [(ngModel)]="empy.id" placeholder="Enter employee id">
+                  </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Employee Name</mat-label>
+                    <input matInput type="text" name="name" [(ngModel)]="empy.name" placeholder="Enter employee Name">
+                  </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="tel" name="mobile" [(ngModel)]="empy.mobile" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter your phone Number">
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                        <mat-select name="gender" [(ngModel)]="empy.gender">
+                        <mat-option *ngFor="let gender of usergender" [value]="gender.value">
+                        {{gender.viewvalue}}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter email</mat-label>
+                    <input matInput type="email" name="email" [(ngModel)]="empy.email" placeholder="Enter your email">
+                  </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Position</mat-label>
+                        <mat-select name="position" [(ngModel)]="empy.position">
+                        <mat-option *ngFor="let position of userposition" [value]="position.value">
+                        {{position.viewvalue}}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter Your address</mat-label>
+                    <textarea matInput type="text" name="address" [(ngModel)]="empy.address" placeholder="Enter your address"></textarea>
+                  </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <div style="text-align: center;">
+        <button (click)="add()" type="button" class="btn btn-outline-success btn-lg" style="margin-right: 10px;">Add</button>
+        <button [routerLink]="['/view']" type="button" class="btn btn-outline-info btn-lg">List</button>
+    </div>
+</div>
