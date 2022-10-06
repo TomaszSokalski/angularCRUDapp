@@ -39,12 +39,7 @@ export class AddComponent implements OnInit {
     this.api.createuser(this.empy).subscribe((data:IEmployee)=>{
       console.log(data);
       this.router.navigate(['/view'])
-    },
-    err=>{
-      alert("something went wrong"),
-      this.router.navigate(['/'])
-    }
-    )
+    })
   }
 
 }

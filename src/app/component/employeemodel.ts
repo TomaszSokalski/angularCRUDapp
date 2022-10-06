@@ -1,5 +1,5 @@
 export interface IEmployee{
-    id: number;
+    eid: number;
     name: string;
     mobile: number;
     gender: string;

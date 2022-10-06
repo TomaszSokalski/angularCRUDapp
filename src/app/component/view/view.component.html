@@ -18,14 +18,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of myemployee">
-            <th>{{user.id}}</th>
+            <th>{{user.eid}}</th>
             <td>{{user.name}}</td>
             <td>{{user.mobile}}</td>
             <td>{{user.gender}}</td>
-            <td>{{user.email}}r</td>
+            <td>{{user.email}}</td>
             <td>{{user.address}}</td>
             <td>
-                <mat-icon [routerLink]="['/edit/update/{{user.id}}']" style="color: blue;">create</mat-icon>
+                <mat-icon routerLink="/edit/update/{{user.id}}" style="color: blue;">create</mat-icon>
                 <mat-icon (click)="deleteuser(user)" style="color: red;">delete</mat-icon>
             </td>
           </tr>

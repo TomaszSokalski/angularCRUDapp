@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { IEmployee } from '../../component/employeemodel';
 
@@ -18,7 +19,9 @@ interface position{
 })
 export class EditComponent implements OnInit {
 
-  public empy: IEmployee = {} as IEmployee
+  public empy: IEmployee = {} as IEmployee;
+  public dataid : any;
+  public data : any;
 
   usergender:gender[]= [
       {value: 'male', viewvalue: 'male'},
@@ -32,9 +35,24 @@ export class EditComponent implements OnInit {
 ]
 
 
-  constructor() { }
+  constructor(private api : ApiService,
+    private activatedRoute : ActivatedRoute,
+    private router : Router) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((param:Params)=>{
+      this.dataid = param['get']('dataid');
+    })
+    this.api.fetchdata(this.dataid).subscribe((data:any)=>{
+      this.empy = data;
+      console.log(data);
+    })
   }
 
+
+  updatedata(){
+    this.api.update(this.empy,this.dataid).subscribe((data:any)=>{
+      this.router.navigate(['/view'])
+    })
+  }
 }
